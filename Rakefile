@@ -4,7 +4,7 @@ require 'echoe'
 Echoe.new("peep") do |p|
   p.author = "Evan Weaver" 
   p.project = "fauna"
-  p.summary = "A heap inpector for live memcached instances."
+  p.summary = "A heap inspector for live memcached instances."
   p.url = "http://blog.evanweaver.com/files/doc/fauna/peep/"  
   p.docs_host = 'blog.evanweaver.com:~/www/bax/public/files/doc/'
   p.require_signed = true  

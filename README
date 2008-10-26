@@ -1,7 +1,7 @@
 
 peep
 
-A heap inpector for live memcached instances.
+A heap inspector for live memcached instances.
 
 == License
 
