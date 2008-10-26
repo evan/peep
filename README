@@ -1,2 +1,37 @@
 
-CFLAGS='-g' ./configure  --with-debug --enable-threads
+peep
+
+A heap inpector for live memcached instances.
+
+== License
+
+Copyright 2008 Cloudburst, LLC. Not licensed for use or distribution of any kind.
+
+== Features
+
+* it works
+
+== Installation
+
+x86 Linux is required.
+
+You need {memcached}[http://www.danga.com/memcached/] compiled with debugging symbols:
+
+  CFLAGS='-g' ./configure  --with-debug --enable-threads
+  make
+  sudo make install
+
+Now install the gem:
+  sudo gem install peep -- --with-memcached-include=/path/to/memcached/source
+  
+== Usage
+
+Find the pid of a live memcached server. Then run:
+
+  peep --pretty $pid
+
+or 
+
+  peep --ugly $pid
+  
+Please note that memcached is fully blocked while the peep is running.
