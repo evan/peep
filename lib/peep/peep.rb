@@ -113,7 +113,7 @@ module Peep
       4 => "S"
     }
 
-    HEADER = ['time', 'exptime', 'nbytes', 'nsuffix', 'it_flags', 'slabs_clsid', 'nkey', 'key', 'expired', 'flushed']
+    HEADER = ['time', 'exptime', 'nbytes', 'nsuffix', 'it_f', 'clsid', 'nkey', 'key', 'exprd', 'flushd']
 
     def items
       basics

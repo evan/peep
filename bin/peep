@@ -3,11 +3,24 @@
 require "rubygems"
 require "peep"
 
-raise "Please specify a PID" unless ARGV.any? and !ARGV[0].to_i.zero?
+pretty = true
+format = "%10s |%10s |%8s |%8s |%5s |%6s |%5s |%75s |%6s |%7s\n"
 
-peeper = Peep::Analysis.new(ARGV[0].to_i)
+if ARGV.first == '--ugly'
+  pretty = false
+  format = "%s | %s | %s | %s | %s | %s | %s | %s | %s | %s\n"
+end
 
-p peeper.class::HEADER
+pid = ARGV.last.to_i
+who
+if pid.zero?
+  puts "peep [--pretty|--ugly] $pid" 
+  exit!
+end
+
+peeper = Peep::Analysis.new(pid)
+printf format, *peeper.class::HEADER if pretty
 peeper.items do |*item|
-  p item
+  item[7] = item[7].inspect[0,73] if pretty
+  printf format, *item
 end
