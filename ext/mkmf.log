@@ -1,0 +1,41 @@
+find_header: checking for #include <memcached.h>
+... -------------------- yes
+
+"/usr/bin/cpp-4.0 -I. -I/opt/local/lib/ruby/1.8/i686-darwin9.4.0 -I. -I/Users/eweaver/p/vendor/memcached-1.2.6 -I/opt/local/include  -O2  -fno-common -pipe -fno-common  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include <memcached.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/ptrace.h... -------------------- yes
+
+"/usr/bin/cpp-4.0 -I. -I/opt/local/lib/ruby/1.8/i686-darwin9.4.0 -I. -I/Users/eweaver/p/vendor/memcached-1.2.6 -I/opt/local/include  -O2  -fno-common -pipe -fno-common  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include <sys/ptrace.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/ptrace.h... -------------------- yes
+
+"/usr/bin/cpp-4.0 -I. -I/opt/local/lib/ruby/1.8/i686-darwin9.4.0 -I. -I/Users/eweaver/p/vendor/memcached-1.2.6 -I/opt/local/include  -O2  -fno-common -pipe -fno-common  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include <sys/ptrace.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/user.h... -------------------- yes
+
+"/usr/bin/cpp-4.0 -I. -I/opt/local/lib/ruby/1.8/i686-darwin9.4.0 -I. -I/Users/eweaver/p/vendor/memcached-1.2.6 -I/opt/local/include  -O2  -fno-common -pipe -fno-common  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include <sys/user.h>
+/* end */
+
+--------------------
+
