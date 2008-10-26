@@ -4,6 +4,7 @@ ext/extconf.rb
 ext/ptrace.c
 lib/peep/peep.rb
 lib/peep.rb
+LICENSE
 Manifest
 Rakefile
 README
