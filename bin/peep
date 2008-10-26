@@ -7,7 +7,7 @@ raise "Please specify a PID" unless ARGV.any? and !ARGV[0].to_i.zero?
 
 peeper = Peep::Analysis.new(ARGV[0].to_i)
 
-p Peep::Analysis::HEADER
-Peep::Analysis.new(ARGV.first.to_i) do |item|
+p peeper.class::HEADER
+peeper.items do |*item|
   p item
 end

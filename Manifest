@@ -1,0 +1,9 @@
+bin/peep
+CHANGELOG
+ext/extconf.rb
+ext/ptrace.c
+lib/peep/peep.rb
+lib/peep.rb
+Manifest
+Rakefile
+README
