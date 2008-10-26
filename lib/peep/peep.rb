@@ -108,9 +108,9 @@ module Peep
     end
 
     IT_FLAGS = {
-      1 => "L",
-      2 => "D",
-      4 => "S"
+      1 => "link",
+      2 => "del",
+      4 => "slab"
     }
 
     HEADER = ['time', 'exptime', 'nbytes', 'nsuffix', 'it_f', 'clsid', 'nkey', 'key', 'exprd', 'flushd']
