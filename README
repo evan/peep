@@ -34,4 +34,22 @@ or
 
   peep --ugly $pid
   
-Please note that memcached is fully blocked while the peep is running.
+Please note that memcached is fully blocked while peep is running.
+
+Peep is also usable as a library, for statistics gathering or deeper inspection.
+
+== Sample output
+
+  eweaver@ubuntu:~$ peep 32589
+    time | exptime | nbytes | nsuffix | it_f | clsid | nkey |                                    key | exprd | flushd
+    8658 |  613458 |    272 |       8 | link |     5 |   31 |      "element2-benchmark:c3RhdH:171:5" | false |  false
+    8658 |       0 |      6 |       6 | link |     1 |   35 |  "element2-benchmark:current_c3RhdH:3" | false |  false
+    8658 |  613458 |    281 |       8 | link |     5 |   32 |     "element2-benchmark:c3RhdH:171:26" | false |  false
+    8678 |   95078 |      6 |       6 | link |     1 |   35 |  "element2-benchmark:User:1:auth:m4Uq" | false |  false
+    8658 |       0 |      8 |       6 | link |     2 |   34 |   "element2-benchmark:user_dGltZWxp:4" | false |  false
+    8686 |  613486 |   1278 |       9 | link |     9 |   27 |          "element2-benchmark:User:1:6" | false |  false
+    8658 |  613458 |   1286 |       9 | link |     9 |   27 |          "element2-benchmark:User:1:4" | false |  false
+    8658 |  613458 |    283 |       8 | link |     5 |   32 |     "element2-benchmark:c3RhdH:171:28" | false |  false
+    8658 |  613458 |    277 |       8 | link |     5 |   32 |     "element2-benchmark:c3RhdH:171:30" | false |  false
+    ...
+

@@ -12,7 +12,7 @@ if ARGV.first == '--ugly'
 end
 
 pid = ARGV.last.to_i
-who
+
 if pid.zero?
   puts "peep [--pretty|--ugly] $pid" 
   exit!
