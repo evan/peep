@@ -5,7 +5,7 @@ A heap inspector for live memcached instances.
 
 == License
 
-Not licensed for use or distribution of any kind.
+Copyright 2008 Cloudburst, LLC. Licensed under the AFL 3. See the included LICENSE file. 
 
 == Features
 

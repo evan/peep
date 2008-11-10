@@ -1,7 +1,4 @@
 
-$LOAD_PATH << "/home/eweaver/p/fauna/peep/ext"
-require 'ptrace'
-
 module Peep
 
   class Analysis
@@ -122,9 +119,11 @@ module Peep
       flushed = settings['oldest_live']
       items = []
 
-      attached do
-        (2**basics['hashpower']).times do |i|
-          bucket = read_long(basics['hashtable'] + i * SIZES['address'])
+      hashtable = basics['hashtable'] 
+
+      attached do        
+        (2**basics['hashpower']).times do
+          bucket = read_long(hashtable)
 
           while !bucket.zero?
             item = [
@@ -145,6 +144,8 @@ module Peep
 
             bucket = read_long(bucket + ITEM_OFFSETS['h_next'])
           end
+          
+          hashtable += SIZES['address']
         end
       end
 
