@@ -17,7 +17,7 @@ x86 Linux is required.
 
 You need {memcached}[http://www.danga.com/memcached/] compiled with debugging symbols:
 
-  CFLAGS='-g' ./configure  --with-debug --enable-threads
+  CFLAGS='-g' ./configure --enable-threads
   make
   sudo make install
 

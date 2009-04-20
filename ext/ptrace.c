@@ -78,7 +78,7 @@ static VALUE settings_offsets () {
   // SETTINGS_(inter);  
   SETTINGS_(verbose);  
   SETTINGS_(oldest_live);  
-  SETTINGS_(managed);
+  //SETTINGS_(managed);
   SETTINGS_(evict_to_free);
   // SETTINGS_(socketpath);
   SETTINGS_(access);
