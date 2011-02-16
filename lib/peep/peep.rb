@@ -36,7 +36,7 @@ module Peep
     def init_addresses
       @addresses = {}
       IO.popen("gdb -q memcached #{pid}", "w+") do |gdb|
-        %w(primary_hashtable hash_items hashpower stats settings).each do | key|
+        %w(primary_hashtable hash_items hashpower stats settings process_started).each do | key|
           gdb.puts "p &#{key}"
           1 while (line = gdb.gets) !~ /\(gdb\)/
           @addresses[key] = line.split.last.hex
@@ -70,7 +70,8 @@ module Peep
         {
           'hashtable' => read_long(addresses['primary_hashtable']),
           'hash_items' => read_long(addresses['hash_items']),
-          'hashpower' => read_int(addresses['hashpower'])
+          'hashpower' => read_int(addresses['hashpower']),
+	      'process_started' => read_long(addresses['process_started'])
         }
       end
     end
@@ -105,9 +106,13 @@ module Peep
     end
 
     IT_FLAGS = {
-      1 => "link",
-      2 => "del",
-      4 => "slab"
+      1 => "LINKED",
+      2 => "CAS",
+      3 => "LINKED CAS",
+      4 => "SLABBED",
+      5 => "LINKED SLABBED",
+      6 => "SLABBED CAS",
+      7 => "LINKED SLABBED CAS"
     }
 
     HEADER = ['time', 'exptime', 'nbytes', 'nsuffix', 'it_f', 'clsid', 'nkey', 'key', 'exprd', 'flushd']
@@ -115,7 +120,7 @@ module Peep
     def items
       basics
 
-      now = Time.now.to_i - stats['started']
+      now = Time.now.to_i - basics['process_started']
       flushed = settings['oldest_live']
       items = []
 
@@ -131,10 +136,10 @@ module Peep
               exptime = read_int(bucket + ITEM_OFFSETS['exptime']),
               read_int(bucket + ITEM_OFFSETS['nbytes']),
               read_uint8(bucket + ITEM_OFFSETS['nsuffix']),
-              IT_FLAGS[read_uint8(bucket + ITEM_OFFSETS['it_flags'])],
+              IT_FLAGS[it_flags = read_uint8(bucket + ITEM_OFFSETS['it_flags'])],
               read_uint8(bucket + ITEM_OFFSETS['slabs_clsid']),
               nkey = read_uint8(bucket + ITEM_OFFSETS['nkey']),
-              read_bytes(bucket + ITEM_OFFSETS['end'], nkey),
+              read_bytes(bucket + ITEM_OFFSETS['end'] + (it_flags & 2 ? 8 : 0), nkey),
 
               !(exptime.zero? or now < exptime), # expired?
               !(flushed.zero? or flushed < time) # flushed?

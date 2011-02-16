@@ -5,6 +5,7 @@
 #include <sys/user.h>
 #include <sys/ptrace.h>
 #include <linux/ptrace.h>
+#include <stdbool.h>
 
 #include "ruby.h"
 #include "rubyio.h"
@@ -60,8 +61,6 @@ static VALUE stats_offsets () {
   STATS_(get_hits);
   STATS_(get_misses);  
   STATS_(started);  
-  STATS_(bytes_read);
-  STATS_(bytes_written);
   
   rb_hash_freeze(p_hash);
   return p_hash;
