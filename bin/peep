@@ -5,7 +5,7 @@ require "rubygems"
 require "peep"
 
 pretty = true
-format = "%10s |%10s |%8s |%8s |%5s |%6s |%5s |%75s |%6s |%7s\n"
+format = "%10s |%10s |%8s |%8s |%11s |%6s |%5s |%75s |%6s |%7s\n"
 
 if ARGV.first == '--ugly'
   pretty = false
