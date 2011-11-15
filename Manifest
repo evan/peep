@@ -1,10 +1,10 @@
-bin/peep
 CHANGELOG
-ext/extconf.rb
-ext/ptrace.c
-lib/peep/peep.rb
-lib/peep.rb
 LICENSE
 Manifest
+README.rdoc
 Rakefile
-README
+bin/peep
+ext/extconf.rb
+ext/ptrace.c
+lib/peep.rb
+lib/peep/peep.rb
